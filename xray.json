@@ -1,0 +1,102 @@
+{
+   "inbounds": [
+      {
+         "port": 1000,
+         "listen": "localhost",
+         "protocol": "vmess",
+         "settings": {
+            "clients": [
+               {
+                  "id": "UUID"
+               }
+            ]
+         },
+         "streamSettings": {
+            "network": "ws",
+            "wsSettings": {
+               "path": "/UUID-vmess"
+            }
+         }
+      },
+      {
+         "port": 2000,
+         "listen": "127.0.0.1",
+         "protocol": "vless",
+         "settings": {
+            "clients": [
+               {
+                  "id": "UUID"
+               }
+            ],
+            "decryption": "none"
+         },
+         "streamSettings": {
+            "network": "ws",
+            "wsSettings": {
+               "path": "/UUID-vless"
+            }
+         }
+      },
+      {
+         "port": 3000,
+         "listen": "127.0.0.1",
+         "protocol": "trojan",
+         "settings": {
+            "clients": [
+               {
+                  "password": "UUID"
+               }
+            ]
+         },
+         "streamSettings": {
+            "network": "ws",
+            "wsSettings": {
+               "path": "/UUID-trojan"
+            }
+         }
+      },
+      {
+         "port": 4000,
+         "listen": "127.0.0.1",
+         "tag": "onetag",
+         "protocol": "dokodemo-door",
+         "settings": {
+            "address": "v1.mux.cool",
+            "network": "tcp",
+            "followRedirect": false
+         },
+         "streamSettings": {
+            "security": "none",
+            "network": "ws",
+            "wsSettings": {
+               "path": "/UUID-ss"
+            }
+         }
+      },
+      {
+         "port": 5000,
+         "listen": "127.0.0.1",
+         "protocol": "socks",
+         "settings": {
+            "auth": "password",
+            "accounts": [
+               {
+                  "user": "UUID",
+                  "pass": "UUID"
+               }
+            ]
+         },
+         "streamSettings": {
+            "network": "ws",
+            "wsSettings": {
+               "path": "/UUID-socks"
+            }
+         }
+      }
+   ],
+   "outbounds": [
+      {
+         "protocol": "freedom"
+      }
+   ]
+}
