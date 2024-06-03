@@ -17,3 +17,12 @@ sed -i "s/UUID/$UUID/g" ./xray.json || exit 1
 echo "your password is ${UUID}"
 
 ./xray -config ./xray.json &
+
+cloudflared tunnel --no-autoupdate run --token ${TOKEN}        
+
+
+
+
+
+
+
