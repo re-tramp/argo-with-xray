@@ -1,19 +1,19 @@
 #!/bin/sh
 
 
-trap 'rm -rf "$dir_temp"' EXIT
-dir_temp=$(mktemp -d)
-file_app=$temp_dir/app.zip
+trap 'rm -rf "$DIR_TEMP"' EXIT
+DIR_TEMP=$(mktemp -d)
+FILE_APP=$DIR_TEMP/app.zip
 
-curl -Lo $file_app $download_link || exit 1
+curl -Lo $FILE_APP $download_link || exit 1
 
-unzip $file_app -d $dir_temp
+unzip $FILE_APP -d $DIR_TEMP
 
-cp $(find $dir_temp -name "xray") ./
+cp $(find $DIR_TEMP -name "xray") ./
 
-sed -i "s/UUID/$gen_uuid/g" ./xray.json || exit 1
+sed -i "s/UUID/$UUID/g" ./xray.json || exit 1
 
 
-echo "your password is ${gen_uuid}"
+echo "your password is ${UUID}"
 
 ./xray -config ./xray.json &
